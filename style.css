@@ -1,0 +1,1679 @@
+/*
+Theme Name: WDSTR
+Theme URI: http://www.wdstr.fr
+Author: Stephanie Walter
+Author URI: http://www.inpixelitrust.fr
+Description: Base on inpixel_blank_theme
+Version: v1.1
+License: GPL
+License URI: http://codex.wordpress.org/License
+*/
+
+
+/* ----------------------------- */
+/* summary */
+/* ----------------------------- */
+/*
+/* A. General structure 
+1- Reset 
+2- Baseline for elements
+3- Base Typography
+4- Layout and modules
+5- Hidding / unhidding content
+6- Forms
+7- Images
+8- WordPress alignement
+
+/* B. WordPress template structure
+1-  General
+2-  Header
+3-  Menu
+4-  Content
+5-  Footer
+
+/* C. Media queries
+
+/* D. Print style
+*/
+
+
+/* ----------------------------- */
+/* == Reset*/
+/* ----------------------------- */
+
+/* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+/*  Uncomment for a hard reset  */
+/*
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;	
+	border: 0;	
+	margin: 0;	
+	padding: 0;	
+	vertical-align: baseline;
+}
+*/
+
+/* A softer reset */
+html,
+body,
+blockquote,
+ul,
+ol,
+form,
+p,
+div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+ul,
+ol {
+	padding-left: 2em;
+}
+blockquote {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img {
+	border: none;
+}
+select,
+input,
+textarea,
+button {
+	font: 99% sans-serif;
+	color: #444;
+}
+pre,
+code,
+kbd,
+samp {
+	font-family: monospace,sans-serif;
+}
+/* HTML 5 elements */
+header,
+nav,
+section,
+article,
+dialog,
+figure,
+aside,
+footer {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+/* ----------------------------- */
+/* == Baseline for elements */
+/* ----------------------------- */
+
+/* base font-size corresponds to 10px */
+html {
+	overflow-y: scroll;
+	font-size: 62.5%;
+}
+body {
+	font-family: Arial,Helvetica,sans-serif;
+	color: #222222;
+	font: 300 1.5em/1.8em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	line-height: 1.4;
+	background: url(images/pattern.png);
+
+}
+::-moz-selection {
+	text-shadow: none;
+	color: #fff;
+	background: rgb(121, 145, 22);
+}
+::selection {
+	text-shadow: none;
+	color: #fff;
+	background: rgb(121, 145, 22);
+}
+
+
+/* ----------------------------- */
+/* == Base Typography */
+/* ----------------------------- */
+
+/* font-sizing for content */
+p,
+li,
+td,
+th,
+textarea {
+	font-size: 1.2em;
+}
+li li,
+li p,
+td p,
+th p,
+li h1,
+li h2,
+li h3,
+li h4,
+li h5,
+li h6,
+button,
+input,
+select {
+	font-size: 100%;
+}
+h1,
+.h1-like {
+	font-size: 2.2em;
+  font-weight:bold;
+}
+/* 24 pixels */
+h2,
+.h2-like {
+	font-size: 2em;
+}
+/* 20 pixels */
+h3,
+.h3-like {
+	font-size: 1.6em;
+}
+/* 18 pixels */
+h4,
+.h4-like {
+	font-size: 1.4em;
+}
+/* 16 pixels */
+h5,
+.h5-like {
+	font-size: 1.4em;
+}
+/* 14 pixels */
+/* alternate font-sizing */
+.smallest {
+	font-size: .7em;
+}
+.smaller {
+	font-size: .8em;
+}
+.small {
+	font-size: .9em;
+}
+.big {
+	font-size: 1.07em;
+}
+/* 15 pixels */
+.bigger {
+	font-size: 1.14em;
+}
+/* 16 pixels */
+.biggest {
+	font-size: 1.28em;
+}
+/* 18 pixels */
+/* avoid collapsing margins */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+p:first-child {
+	margin-top: 0;
+}
+/* avoid last paragraph bottom margin */
+p:last-child {
+	margin-bottom: 0;
+}
+/* styling headings */
+h1,
+.h1-like {
+}
+h2,
+.h2-like {
+}
+h3,
+.h3-like {
+}
+h4,
+.h4-like {
+}
+h5,
+.h5-like {
+}
+h6,
+.h6-like {
+}
+
+/* max values */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+object,
+embed,
+video {
+   max-width: 100%;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+iframe {
+	max-width: 100%;
+}
+
+/* iframe fix for responsive  http://amobil.se/2011/11/responsive-embeds/ */
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16/9 ratio */
+	padding-top: 30px; /* IE6 workaround*/
+	height: 0;
+	overflow: hidden;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* you shall not pass */
+textarea,
+table,
+td,
+th,
+code,
+pre,
+samp,
+div,
+p {
+	word-wrap: break-word;
+}
+code,
+pre,
+samp {
+	white-space: pre-wrap;
+}
+small {
+	font-size: 85%;
+}
+strong,
+th {
+	font-weight: bold;
+}
+td,
+td img {
+	vertical-align: top;
+}
+sub {
+	font-size: smaller;
+	vertical-align: sub;
+}
+sup {
+	font-size: smaller;
+	vertical-align: super;
+}
+pre {
+	padding: 15px;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	word-wrap: break-word;
+}
+strong{
+	
+}
+
+/* Links */
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a,
+a:active,
+a:visited {
+	color: #8bb008;
+	/*font-weight: bold;*/
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+a:link {
+	-webkit-tap-highlight-color: #FF5E99;
+}
+a img {
+	border: 0;
+}
+
+/* ----------------------------- */
+/* == Layout and modules */
+/* ----------------------------- */
+
+
+/* switching box model for all elements */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* float layout */
+/* ----------- */
+/* tutorial : http://knacss.com/demos/tutoriel.html; */
+
+/* module, contains floats (.item is the same) */
+.mod, .item { 
+	overflow: hidden;
+}
+
+/* table layout */
+/* ------------------ */
+.row {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.row > *,
+.col {
+	display: table-cell;
+	vertical-align: top;
+}
+
+/* blocks that needs to be placed under floats */
+.clear,
+.line,
+.row {
+	clear: both;
+}
+
+/* blocks that must contain floats */
+.clearfix:after,
+.line:after,
+.mod:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* alignments (blocks and inline) */
+/* ------------------------------ */
+
+/* left elements */
+.left {
+	float: left;
+}
+img.left {
+	margin-right: 1em;
+}
+
+/* right elements */
+.right {
+	float: right;
+}
+img.right {
+	margin-left: 1em;
+}
+
+img.left, img.right {
+	margin-bottom: 5px;
+}
+
+.center	{ margin: auto; }
+.txtleft   { text-align: left; }
+.txtright  { text-align: right; }
+.txtcenter { text-align: center; }
+
+/* just inline-block */
+.inbl {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: -.25em;
+}
+
+/* grids	*/
+/* ------------------------------ */
+
+/* grids with 2% gutter */
+[class*=grid] > * {float: left; } /* direct childrens are floating */
+[class*=grid] > * + * { margin-left: 2%; } /* that's the gutter */
+.grid2 > * { width: 49%; }
+.grid3 > * { width: 32%; }
+.grid4 > * { width: 23.5%; }
+.grid5 > * { width: 18.4%; }
+.grid6 > * { width: 15%; }
+
+/* blocks widths (percentage and pixels) */
+.w10	{ width: 10%; }
+.w20	{ width: 20%; }
+.w25	{ width: 25%; }
+.w30	{ width: 30%; }
+.w33	{ width: 33.333%; }
+.w40	{ width: 40%; }
+.w50	{ width: 50%; }
+.w60	{ width: 60%; }
+.w66	{ width: 66.666%; }
+.w70	{ width: 70%; }
+.w75	{ width: 75%; }
+.w80	{ width: 80%; }
+.w90	{ width: 90%; }
+.w100   { width: 100%; }
+
+.w50p   { width: 50px; }
+.w100p  { width: 100px; }
+.w150p  { width: 150px; }
+.w200p  { width: 200px; }
+.w300p  { width: 300px; }
+.w400p  { width: 400px; }
+.w500p  { width: 500px; }
+.w600p  { width: 600px; }
+.w700p  { width: 700px; }
+.w800p  { width: 800px; }
+.w960p  { width: 960px; }
+.mw960p { max-width: 960px; }
+
+/* spacing helpers
+p,m = padding,margin
+a,t,r,b,l = all,top,right,bottom,left
+s,m,l,n = small(10px),medium(20px),large(30px),none(0)
+source https://github.com/stubbornella/oocss/blob/master/core/spacing/space.css
+*/
+.mt0, .mtn { margin-top: 0; }
+.mt1, .mts { margin-top: 10px; }
+.mt2, .mtm { margin-top: 20px; }
+.mt3, .mtl { margin-top: 30px; }
+.mr0, .mrn { margin-right: 0; }
+.mr1, .mrs { margin-right: 10px; }
+.mr2, .mrm { margin-right: 20px; }
+.mr3, .mrl { margin-right: 30px; }
+.mb0, .mbn { margin-bottom: 0; }
+.mb1, .mbs { margin-bottom: 10px; }
+.mb2, .mbm { margin-bottom: 20px; }
+.mb3, .mbl { margin-bottom: 30px; }
+.ml0, .mln { margin-left: 0; }
+.ml1, .mls { margin-left: 10px; }
+.ml2, .mlm { margin-left: 20px; }
+.ml3, .mll { margin-left: 30px; }
+
+.pt0, .ptn { padding-top: 0; }
+.pt1, .pts { padding-top: 10px; }
+.pt2, .ptm { padding-top: 20px; }
+.pt3, .ptl { padding-top: 30px; }
+.pr0, .prn { padding-right: 0; }
+.pr1, .prs { padding-right: 10px; }
+.pr2, .prm { padding-right: 20px; }
+.pr3, .prl { padding-right: 30px; }
+.pb0, .pbn { padding-bottom: 0; }
+.pb1, .pbs { padding-bottom: 10px; }
+.pb2, .pbm { padding-bottom: 20px; }
+.pb3, .pbl { padding-bottom: 30px; }
+.pl0, .pln { padding-left: 0; }
+.pl1, .pls { padding-left: 10px; }
+.pl2, .plm { padding-left: 20px; }
+.pl3, .pll { padding-left: 30px; }
+
+.m-reset, .ma0 { margin: 0 !important; }
+.p-reset, .pa0 { padding: 0 !important; }
+.ma1, .mas { margin: 10px !important; }
+.ma2, .mam { margin: 20px !important; }
+.ma3, .mal { margin: 30px !important; }
+.pa1, .pas { padding: 10px !important; }
+.pa2, .pam { padding: 20px !important; }
+.pa3, .pal { padding: 30px !important; }
+
+
+/* ----------------------------- */
+/* == Hidding / unhidding content */
+/* ----------------------------- */
+
+/* for image replacement */
+.ir { 
+display: block; 
+height:0px;
+text-indent: -999em; 
+overflow: hidden; 
+background-repeat: no-repeat; 
+text-align: left; 
+direction: ltr; 
+}
+
+/* Hide for both screenreaders and browsers 
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; } 
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.assistive-text, 
+.visuallyhidden{
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+}
+a.assistive-text:active,
+a.assistive-text:focus {
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	color: #1982d1;
+	clip: auto !important;
+	font-size: 12px;
+	position: absolute;
+	text-decoration: underline;
+	top: 0;
+	left: 7.6%;
+}
+
+/* hiding content */
+.desktop-hidden {display: none;} /* hidden on desktop */
+
+.mobile-hidden {} /* hidden on mobile */
+
+.tablet-hidden {} /* hidden on tablets */
+
+.phone-hidden {} /* hidden on smartphones */
+
+
+
+
+/* ----------------------------- */
+/* ==  Forms */
+/* ----------------------------- */
+
+legend {border: 0; white-space: normal;}
+form, fieldset { border: none;}
+label{ cursor: pointer; } /* hand cursor on clickable input elements */
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+  
+button, 
+input, 
+select, 
+textarea { 
+margin: 0; 
+}
+/* colors for form validity 
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+	  border-radius: 1px;
+	-moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+		 box-shadow: 0px 0px 5px red;
+}
+*/
+button, input, select {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;   }
+textarea { 
+	overflow: auto; 
+	min-height: 5em;
+	vertical-align: top;
+	resize: vertical;
+	font-size: 1em;
+} 
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	*overflow: visible; }
+input[type="checkbox"], input[type="radio"] {
+	padding: 0;
+	*width: 13px; *height: 13px; }
+input[type="search"] {-webkit-appearance: textfield;}
+input[type="radio"] { 
+vertical-align: text-bottom; 
+}
+input[type="checkbox"] { 
+vertical-align: bottom; 
+}
+.ie7 input[type="checkbox"] { 
+vertical-align: baseline; 
+}
+.ie6 input { 
+vertical-align: text-bottom; 
+}
+/* 'x' appears on right of search input when text is entered. This removes it */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+	display: none;
+}
+
+/* Removes inner padding and border in FF3+ */
+button::-moz-focus-inner,
+input[type='button']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+/* style the placeholder */
+
+::-webkit-input-placeholder {color: #777;}
+input:-moz-placeholder, textarea:-moz-placeholder {color: #777;}
+
+.ie6 legend, 
+.ie7 legend { 
+margin-left: -7px; 
+} /* thnx ivannikolic! */
+
+/* haslayout for IE6/IE7 */
+.ie7 .clearfix,.ie7 .line, .ie7 .mod, .ie7 .row, .ie7 .col {
+	zoom: 1;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+/* Forms - Class for labelling required form items */
+
+.required {
+	color: #cc0033;
+}
+
+
+
+
+/* wpcf7 form */
+.wpcf7 p{
+	margin-bottom:10px;
+}
+
+.wpcf7  input,
+.wpcf7 textarea{
+	width:100%;
+	padding:10px;
+}
+
+.wpcf7  input.wpcf7-submit{
+	width:auto;
+}
+
+
+/* ----------------------------- */
+/* == Images */
+/* ----------------------------- */
+
+/*
+Resize images to fit the main content area.
+- Applies only to images uploaded via WordPress by targeting size-* classes.
+- Other images will be left alone. Use "size-auto" class to apply to other images.
+*/
+
+img.size-auto,
+img.size-full,
+img.size-large,
+img.size-medium,
+.attachment img,
+.widget-area img {
+	max-width: 100%;
+	height: auto; 
+}
+img.alignleft {
+	margin-right: 1em;
+}
+img.alignright {
+	margin-left: 1em;
+}
+.wp-caption {
+	padding: .5em;
+	text-align: center;
+}
+.wp-caption img {
+	margin: .25em;
+}
+.wp-caption .wp-caption-text {
+	margin: .5em;
+}
+.gallery-caption{
+}
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+
+
+/* ----------------------------- */
+/* == WordPress alignement */
+/* ----------------------------- */
+
+/* Alignment */
+
+.alignleft {
+	display: inline;
+	float: left;
+}
+.alignright {
+	display: inline;
+	float: right;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.txtleft{
+  text-align:left;
+}
+.txtright{
+  text-align:right;
+}
+
+hr{
+  clear: both; padding-top: 2em; border: none; border-bottom: solid 1px #ddd; margin-bottom: 2em;}
+
+/* Template structure here */
+
+
+/* ----------------------------- */
+/* == General */
+/* ----------------------------- */
+.container{
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top:40px;
+	max-width: 800px;
+	min-height:400px;
+	padding: 0 20px;
+}
+
+/* specific*/
+.home .entry-content{
+	/*text-align:center;*/
+}
+p{
+	margin-bottom:1.5em;
+}
+p.cta {
+	padding-top: 1em;
+}
+.cta a{
+	font-weight:bold;
+}
+.entry-content {
+	line-height: 1.6;
+	color: #555;
+}
+.entry-content ul,
+.entry-content ol {
+	padding-left: 2.5em;
+	margin: 1.75em 0;
+}
+.entry-content ul ul,
+.entry-content ol ul {
+	margin: .4em 0;
+}
+
+
+/* buttons */
+.btn,
+.btn:visited, 
+#action-button,
+.em-booking-submit,
+.em-booking-login input[type=submit],
+.wpcf7-form .wpcf7-submit,
+#comments #submit,
+.subscribe input[type=submit],
+.readmore a {
+	display:inline-block;
+	border:none;
+	background:rgba(0, 0, 0,0.7);
+	color:#fff;
+	padding:10px 15px;
+	font-weight:bold;
+	text-decoration:none;
+	border-radius:0.2em;
+	-webkit-transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	-o-transition:all 0.5s;
+	-ms-transition:all 0.5s;
+	transition:all 0.5s;
+}
+.btn:hover,
+.btn:active,
+#action-button:hover,
+#action-button:active,
+.em-booking-submit:hover,
+.em-booking-submit:active,
+.em-booking-login input[type=submit]:hover,
+.em-booking-login input[type=submit]:active,
+.wpcf7-form .wpcf7-submit:hover,
+.wpcf7-form .wpcf7-submit:active,
+#comments #submit:hover,
+#comments #submit:active,
+.subscribe input[type=submit]:hover,
+.subscribe input[type=submit]:active{
+   text-decoration:none;
+   background:rgba(0, 0, 0,1);
+}
+
+.btn.primary {
+	background: rgb(118, 145, 10);
+}
+.btn.primary:active {
+	color: rgb(250, 255, 120);
+}
+
+
+/* ----------------------------- */
+/* == Header */
+/* ----------------------------- */
+
+.site-title {
+	font-weight: bold;
+	margin: .67em 0;
+	text-align:center;	
+}
+
+h1.site-title{
+	display: block;
+	margin: 2em auto 0.2em;
+}
+.home h1.site-title{
+	margin-bottom:2em;
+}
+.site-description {
+	font-weight: normal;
+	margin: 0 0 1em;
+}
+
+
+/* ----------------------------- */
+/* == Menu */
+/* ----------------------------- */
+
+.menu-wrapper{
+color:#FFF;
+border-bottom: 5px solid #8BB008;
+position:fixed;
+background:rgb(82, 81, 81);
+left: 0px;
+top: 0px;
+width: 100%;
+z-index:999;
+}
+
+#menu{
+	max-width:800px;
+	margin:0 auto;
+	-webkit-transition: all 0.3s ease-out;  
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	 -o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+nav .menu {
+	display: block;
+}
+nav .menu ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+nav .menu li {
+	float: left;
+	position: relative;
+}
+nav .menu a,
+a.menu-link {
+	display: block;
+	line-height: 1.8em;
+	font-size:0.9em;
+	padding: 0.5em 0.8em;
+	color:#fff;
+	text-decoration: none;
+	-webkit-transition:all 0.2s;
+	-moz-transition:all 0.2s;
+	-o-transition:all 0.2s;
+	-ms-transition:all 0.2s;
+	transition:all 0.2s;
+}
+a.menu-link {
+	float: right;
+	font-size:1.1em;
+   
+}
+nav .menu a[href*="/events/"] {
+	/*background: #8BB008;*/
+	color: #8BB008;
+	font-weight: bold;
+
+}
+
+nav .menu .current-menu-item  a[href*="/events/"] {
+  background: #333;
+  color: #8BB008;
+}
+
+nav .menu .rightalign a {
+	background: #666
+}
+nav .menu li:hover > a,
+.current_page_item a,
+.current-menu-item a{
+	background: #333;
+	color: #fff;
+}
+
+nav .menu  .rightalign{
+	float:right;
+}
+
+
+.js nav[role=navigation] {
+max-height: none;
+} 
+
+a.menu-link {
+	display: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+	a.menu-link{
+	display:block;
+	}
+	nav .menu  li {
+		float:none;
+		margin:0;
+	}
+	.js nav[role=navigation] {
+		overflow:hidden;
+		max-height: 0px;
+	} 
+	.js nav[role=navigation].active {
+	   max-height: 30em;
+	}
+	nav .menu  .rightalign{
+		 float:none;
+	}
+
+
+}   
+
+
+
+
+
+/* ----------------------------- */
+/* == Content */
+/* ----------------------------- */
+
+.content nav {
+	display: block;
+	overflow: hidden;
+}
+.content nav .nav-previous {
+	float: left;
+	width: 50%;
+}
+.content nav .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+.content #nav-above {
+	display: none;
+}
+.paged .content #nav-above,
+.single .content #nav-above {
+	display: block;
+}
+#nav-below {
+	margin: 1em 0 0;
+}
+.page-link {
+	margin: 0 0 1em;
+}
+
+.content a{
+   word-wrap:break-word;
+   white-space : normal;
+}
+
+.entry-meta{
+
+	margin-bottom:10px;
+	font-style:italic;
+	font-size:0.8em;
+}
+
+.heading {
+	padding-bottom:2em;
+}
+
+.blog .entry-title,
+.single .entry-title {
+	margin: 1.2em 0 .2em 0;
+    font-weight: normal;
+}
+.readmore {
+	margin-top: -5px;
+}
+.blog .readmore a {
+	padding: 6px 12px 7px 12px;
+	font-size: .8em;
+}
+.blog .readmore a:after {
+	content: "\203A";
+    display:inline-block;
+    margin-left: 10px;
+}
+
+/**** Events Manager ****/
+
+
+.em-booking-form .em-booking-form-details {
+	padding:0;
+}
+
+/** formulaire de réservation **/
+.em-booking .em-booking-form-details{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width:60%;
+	float:left;
+}
+
+.em-booking  div.em-booking-login {
+	float:left; 
+	 width:40%;  
+	margin:0px;
+	padding:0px 10px;   
+}
+
+.em-booking  div.em-booking-login label {
+	width:auto;
+	display:block;
+}
+.em-booking  div.em-booking-login .remember{
+	font-size:0.9em;
+	padding:0 0 10px 0 !important;
+}
+
+.em-booking div.em-booking-login .remember label{
+	display:inline-block;	
+}
+
+
+
+/* Mes reservations */
+
+.em-my-bookings table {
+	width:100%;
+	border:1px solid rgb(126, 125, 125);
+}
+
+.em-my-bookings table thead{
+	background:rgb(126, 125, 125) ; 
+	color:#fff;
+}
+
+.em-my-bookings table th{
+	text-align:left;
+	padding:8px 5px;
+}
+.em-my-bookings table  td{
+	padding:5px;
+}
+/* responsive table */
+.table-wrap {
+	max-width: 100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+
+/*  Map */ 
+.em-location-map, .em-locations-map { 
+	width: auto !important; 
+	height: 350px !important; 
+}
+.eventdetails {
+	padding: 20px;
+	background: #f5f5F5;
+	border: 1px solid #ddd;
+	color: #666;
+}
+.eventdetails ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.eventdetails h3{
+	margin:5px 0;
+}
+.eventdetails .block + .block h3{
+	margin:15px 0 5px;
+}
+.eventdetails  h4{
+	color:rgb(139, 176, 8);
+	margin-bottom:5px;
+}
+.block{
+	padding:0 5px;
+	margin-bottom:10px;
+}
+.map.w60 {
+	width: 55%;
+	float: right;
+}
+
+
+#comments {
+	margin-top: 30px;
+	padding-top:20px;
+   border-top: 1px solid #BBBCBD;
+
+}
+#comments h3{
+	font-size: 18px;
+	line-height: 36px;
+}
+#comments h2 {
+	font-size: 15px;
+	 font-family: "Droid Serif",Georgia,Times,serif;
+}
+#respond-wrap .comments-sidebar {
+	padding-top: 30px;
+}
+.commentlist {
+	margin: 10px 0 40px 0;
+	border-top: 1px solid #efefef;
+	list-style-type: none;
+	border-bottom: 1px solid #BBBCBD;
+}
+.commentlist ul{
+	margin-left:0px;
+}
+.commentlist .line {
+	display: none;
+}
+.commentlist li li li .line {
+	display: block;
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	margin: 0 0 0 -50px;
+	border-bottom: 1px solid #efefef;
+}
+.commentlist .comment-body {
+	padding-left: 45px;
+}
+.commentlist li li .comment-body {
+	padding-left: 30px;
+}
+.commentlist ul {
+	border-left: 1px solid #efefef;
+}
+.commentlist ul ul {
+	margin: 0 0 0 50px;
+}
+.commentlist li li {
+	margin-top: 0;
+	padding-top: 25px;
+}
+.commentlist li #commentform {
+	margin-top: 20px;
+}
+.commentlist li #respond {
+	padding-top: 5px;
+}
+.pinglist {
+	margin: 20px 0 40px 30px;
+	list-style-type: decimal;
+}
+.comment {
+	margin-bottom: 20px;
+}
+article.comment {
+	border-bottom: 1px solid #D7D7D7;
+}
+.comment-body ul,
+.comment-body ol,
+.comment-body dl {
+	margin-left: 30px;
+}
+#respond {
+	margin-top: 18px;
+	background:rgba(255,255,255,0.6);
+	padding: 5px 20px 20px 20px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+  	overflow:hidden;
+}
+li li .cancel-comment-reply {
+	padding-left: 30px;
+}
+li .cancel-comment-reply {
+	padding-left: 45px;
+}
+ol #commentform {
+	width: 100%;
+}
+.comment-form-author label,
+.comment-form-email label,
+.comment-form-url label {
+	display: block;
+}
+#commentform label+ .required {
+	display: block;
+	float: left;
+	width: 0.5%;
+}
+#commentform input,
+#commentform textarea {
+	width: 100%;
+	height:30px;
+	padding: 20px;
+  	font-size: 0.8em;
+	background:rgb(234, 232, 232);
+	border:1px solid rgb(211, 209, 209);
+	color:rgb(57, 56, 56);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+#comments #submit{
+ width:auto; 
+   height:40px;
+  float:right;
+}
+#commentform label.subscribe-reloaded {
+	width: 99%;
+}
+#commentform textarea {
+	min-height:150px;	
+}
+.form-allowed-tags{
+	font-size:12px;
+}
+#commentform small span,
+.contactform small span {
+	color: #F00;
+}
+.children {
+	list-style-type: none;
+}
+.comment-author {
+  height: 40px;   
+  font-size: 11px;
+}
+.comment-author .fn,
+.comment-author .fn a {
+	display: block;
+	font-size: 14px;
+}
+.avatar {
+	z-index: 5;
+	float: left;
+	width: 50px;
+	height: auto;
+	margin: 0 10px 0 0;
+}
+.comment-content {
+	padding-left: 63px;
+}
+.comment .reply {
+	text-align: right;
+}
+.comment-meta {
+	margin-bottom: 15px;
+}
+.comment-meta a {
+	font-family: 
+		"Droid Serif",
+		Georgia,
+		Times,
+		serif;
+	font-size: 11px;
+	font-style: italic;
+	color: #999;
+}
+.comment-meta a:hover {
+	color: #666;
+}
+li li .comment-meta,
+li li .comment-author {
+	padding-left: 30px;
+}
+.comment-author a {
+	color: #444;
+}
+.comment-author cite {
+	font-family: 
+		"Helvetica Neue",
+		Helvetica,
+		Arial,
+		sans-serif;
+	font-style: normal;
+}
+.says {
+	display: none;
+}
+.nocomments {
+	padding: 20px;
+	text-align: center;
+}
+.comment-body ul {
+	margin-bottom: 20px;
+	border: none;
+	list-style-type: disc;
+}
+.comment-body ul li {
+	margin: 0;
+	padding: 0;
+}
+.comment-body ol {
+	list-style-type: decimal;
+}
+.moderation {
+	padding-left: 45px;
+	font-size: 11px;
+	color: red;
+}
+
+
+
+
+
+
+/* ----------------------------- */
+/* == Footer */
+/* ----------------------------- */
+
+footer {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: #AAAAAA;
+	font-size: 0.8em;
+	/*text-align:center;*/
+}
+footer a,
+footer a:visited{
+	font-weight: normal;
+	color: rgb(136, 136, 136);
+}
+.footer{   
+	margin-top: 2.8em;
+}
+.follow{  
+	text-align: center;
+	font-size: 1.4em;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 1.3em 0 ;
+}
+.follow a,
+.follow a:visited{
+  color: #8BB008;
+	text-decoration: none;
+}
+.follow a:hover{
+	text-decoration: underline;
+}
+.follow a[href*="twitter"] {
+	color: #00B2F1;
+}
+.follow a[href*="google"] {
+	color: #D33F4A;
+}
+.follow a[href*="facebook"] {
+	color: #3B5998;
+}
+
+.subscribe label{
+	font-size: 1.2em;
+	color: rgb(82, 81, 81);
+	display: block;
+	margin-bottom: 0.2em;
+}
+.subscribe #mce-EMAIL{
+	display: block;
+	height: 2.5em;
+	margin-bottom: 1em;
+  padding: 0 0.8em;
+	font-size: 1.2em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.subscribe input[type=submit]{
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.extra-footer {
+	padding: 4px;
+	background: rgb(118, 145, 10);
+	color: #FFF;
+}
+.extra-footer a{
+ 	font-weight:bold; 
+}
+.footer-menu {
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: right;
+}
+.footer-menu > a.left {
+	margin-top: 3px;
+	color: #fff;
+}
+.footer-menu li {
+	display: inline;
+	list-style: none;
+}
+.footer-menu li a {
+	display: inline-block;
+	padding: 4px 12px;
+	color: #fff;
+	font-size: .8em;
+}
+.footer-menu li.rightalign {
+	display: none;
+}
+
+
+/* ----------------------------- */
+/* == Media queries */
+/* ----------------------------- */
+
+/* Media queries for responsive design
+ These follow after primary styles so they will successfully override. 
+ */
+
+@media all and (orientation:portrait) {
+}
+@media all and (orientation:landscape) {
+}
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+
+
+
+
+/* quick smartphone reset */
+
+@media (max-width: 640px) {
+	.phone-hidden {display: none}
+	.mod, .col {
+	 display: block !important;
+	 margin: 0 !important;
+	 border: 0 !important;
+	 float: none !important;
+	 width: auto !important;
+	}
+	[class*="mw"], [class*="w9"], [class*="w8"],
+	[class*="w7"], [class*="w6"], [class*="w5"],
+	[class*="w4"], [class*="w3"] {
+		width: auto;
+	}
+	h1, .h1-like {
+		font-size: 2em;
+	} 
+	h2, .h2-like {
+	font-size: 1.8em;
+	}
+	h3, .h3-like {
+	font-size: 1.6em;
+	}
+	h4, .h4-like {
+	font-size: 1.5em;
+	}
+	.footer .w50{
+		border-bottom:1px solid rgb(170, 170, 170) !important;
+		padding-bottom:1em;
+	}
+	.subscribe{
+		padding-top:1em;
+	}
+	.subscribe #mce-EMAIL,
+	.subscribe input[type="submit"]{
+		width: 100% !important;
+		margin-bottom:0.7em !important;
+	}
+
+	.em-booking .em-booking-form-details,
+	.em-booking div.em-booking-login{
+		width:auto;
+		float:none;
+		border:none;
+
+	}
+	.em-booking div.em-booking-login{
+		margin-top:30px;
+	}
+
+	.block{
+		width:50%;
+		float:left;
+		margin-bottom:10px;
+	}
+}
+@media (max-width: 500px) {
+	h1, .h1-like {
+		font-size: 1.8em;
+	} 
+	h2, .h2-like {
+	font-size: 1.6em;
+	}
+	h3, .h3-like {
+	font-size: 1.5em;
+	}
+	h4, .h4-like {
+	font-size: 1.5em;
+	} 
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
+
+
+/* ----------------------------- */
+/* == Print style */
+/* ----------------------------- */
+
+@media print {
+	p, blockquote {orphans: 2; widows: 2;}
+	blockquote, ul, ol {page-break-inside: avoid;}
+	h1, h2, h3, caption { page-break-after: avoid;}
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: "(" attr(href) ")"; } 
+  abbr:after { content: "(" attr(title) ")"; }
+  .ir a:after { content: "";
+}
+/* Don't show links for images */
+ pre,
+blockquote {
+	border: 1px solid #999;
+	page-break-inside: avoid;
+}
+thead {
+	display: table-header-group;
+}
+/* css-discuss.incutio.com/wiki/Printing_Tables */
+tr,
+img {
+	page-break-inside: avoid;
+	max-width: 100%;
+	height: auto;
+	width: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@page {
+		margin: 0.5cm;
+	}
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+}
+
+
+/* google maps bug yeahy */
+.gmnoprint {
+  display:none;
+}
+
+
+
+
+
